@@ -3,39 +3,33 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
-const authRoutes = require("./routes/auth");
-
 const app = express();
 
-
-// MIDDLEWARE
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-
-// ROUTES
-app.use("/api/auth", authRoutes);
-
+// ROOT ROUTE
 app.get("/", (req, res) => {
-  res.send("Backend Running Successfully");
+  res.status(200).json({
+    success: true,
+    message: "TTCoins Backend Running Successfully"
+  });
 });
 
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+  console.log("MongoDB Connected Successfully");
+})
+.catch((err) => {
+  console.log("MongoDB Error:");
+  console.log(err);
+});
 
-// DATABASE CONNECTION
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB Connected Successfully");
-  })
-  .catch((err) => {
-    console.log("MongoDB Connection Error:");
-    console.log(err);
-  });
-
-
-// SERVER
+// PORT
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
