@@ -75,9 +75,17 @@ router.post("/login", async (req, res) => {
     );
 
     res.status(200).json({
-      token,
-      user
-    });
+  token,
+  user: {
+    id: user._id,
+    username: user.username,
+    email: user.email,
+    phone: user.phone,
+    coins: user.coins,
+    role: user.role,
+    status: user.status
+  }
+});
 
   } catch (error) {
     res.status(500).json({
