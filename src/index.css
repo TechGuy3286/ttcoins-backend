@@ -1,0 +1,77 @@
+:root {
+  --primary: #ff0750;
+  --success: #01f2ea;
+  --dark: #000000;
+  --white: #ffffff;
+  --bg: #f5f7fa;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-success {
+  background: var(--success);
+  color: black;
+}
+
+.btn-success:hover {
+  opacity: 0.9;
+}
+
+/* Status */
+.status-on {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.status-off {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  background: var(--dark);
+  color: white;
+  padding: 10px;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
